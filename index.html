@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Service</title>
+    <link rel="shortcut icon" href="./assets/logo-dark.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./font.css" />
+  </head>
+  <body>
+    <header>
+      <!-- navbar -->
+      <nav class="flex max-md:flex-col max-md:gap-10 max-md:items-center justify-between mx-[60px] my-[24px]">
+        <!-- logo and title -->
+        <div class="flex items-center gap-[10px] h-[50px] w-[195px] max-md:flex-col max-md:justify-center max-md:items-center">
+          <img class="w-full h-full object-contain" src="./assets/logo.png" alt="bangladesh-govt-logo" />
+          <h2 class="text-2xl/6 text-[#006747] max-md:text-center max-md:text-nowrap font-bold">Emergency Service</h2>
+        </div>
+        <!-- heart, coin, copy -->
+        <div class="flex justify-between w-[397px] h-[52px]">
+          <!-- heart -->
+          <div class="flex w-[123px] justify-center rounded-4xl items-center font-bold px-9 py-3.5 bg-green-400/10 gap-2">
+            <span id="heart-count">0</span>
+            <img class="w-[30px] h-[30px]" src="./assets/heart.png" alt="heart" />
+          </div>
+          <!-- coin -->
+          <div class="flex w-[123px] justify-center rounded-4xl items-center font-bold gap-2 px-9 py-3.5 bg-green-400/10">
+            <span id="coin-balance">100</span>
+            <img class="w-[30px] h-[30px]" src="./assets/coin.png" alt="" />
+          </div>
+          <!-- copy -->
+          <div class="flex px-9 py-3.5 rounded-4xl text-white items-center bg-[#00a63e]">
+            <p><span id="copy-count">0</span> Copy</p>
+          </div>
+        </div>
+      </nav>
+      <!-- hero -->
+      <div class="hero hind flex flex-col justify-center items-center max-md:h-fit max-md:py-4 gap-3 w-full h-[240px] bg-gradient-to-r text-white from-[#013223] via-[#006747] to-[#013223]">
+        <img class="w-[92px]" src="./assets/logo-dark.png" alt="" />
+        <h1 class="text-[40px] text-center font-semibold">Emergency Service Directory</h1>
+        <p class="text-center">Government Emergency Services at Your Fingertip – A Project by Government of the People’s Republic of Bangladesh</p>
+      </div>
+    </header>
+    <div id="menu-btn" class="bg-green-400/10 pt-[24px] pr-[58px] relative hidden max-xl:block">
+      <div class="p-4 bg-amber-50 rounded-xl w-fit absolute right-[58px]">
+        <i class="fa-solid fa-bars fa-2xl"></i>
+      </div>
+    </div>
+    <main class="flex gap-8 bg-green-400/10 pt-[24px] justify-between w-full max-xl:pt-[85px] pb-[48px] px-[58px] hind">
+      <!-- cards -->
+      <div id="card-container" class="cards grid-cols-3 w-[75%] max-xl:w-full max-sm:grid-cols-1 max-lg:grid-cols-2">
+        <!-- card -->
+        <div class="card flex flex-col gap-4 rounded-2xl bg-white w-1/3 p-8">
+          <!-- section-1 -->
+          <div class="flex justify-between items-center">
+            <!-- card-icon -->
+            <div class="card-section-1 flex justify-center items-center rounded-2xl w-[60px] h-[60px] bg-[#ffe3e2]">
+              <img class="w-[32px] h-[32px]" src="./assets/emergency.png" alt="" />
+            </div>
+            <i class="fa-regular fa-heart fa-lg text-gray-500"></i>
+          </div>
+          <!-- section-2 -->
+          <div class="card-section-2">
+            <h3 class="text-[18px] font-bold">National Emergency Number</h3>
+            <p class="text-gray-500">National Emergency</p>
+          </div>
+          <!-- section-3 -->
+          <div class="section-3">
+            <h2 class="text-[32px] text-3xl font-semibold">999</h2>
+            <p class="text-gray-400 bg-gray-100 rounded-2xl px-4 py-1.5 w-fit">All</p>
+          </div>
+          <!-- button-section -->
+          <div class="card-section-button roboto flex gap-2">
+            <button class="w-[50%] py-0.5 border border-gray-200 text-gray-400 rounded text-[16px]">
+              <i class="fa-solid fa-copy"></i>
+              <span> Copy</span>
+            </button>
+            <!-- call-button -->
+            <button class="call-btn w-[50%] bg-[#00a639] text-white rounded text-[16px]">
+              <i class="fa-solid fa-phone-flip fa-rotate-90 fa-sm"></i>
+              <span>Call</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- call history -->
+      <div id="call-history" class="max-xl:bg-gray-300 bg-white scroll-auto overflow-auto max-xl:h-[75%] p-2 rounded-2xl max-xl:hidden max-xl:fixed top-30 right-[58px] w-[25%] max-xl:w-[300px] h-[100%]">
+        <div id="history-close-btn" class="relative -top-1 cursor-pointer hidden max-xl:block">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="history-navbar flex p-2 max-xl:pt-0 justify-between">
+          <!-- title -->
+          <div class="history-title flex gap-1 items-center">
+            <div class="flex gap-1 relative items-center">
+              <i class="fa-regular fa-clock"></i>
+              <h3 class="text-xl">Call History</h3>
+            </div>
+          </div>
+          <button id="clear-btn" class="px-9 py-3.5 roboto cursor-pointer rounded-4xl text-white bg-[#00a63e]">Clear</button>
+        </div>
+        <div id="history-container">
+          <!-- <div class="history flex justify-between items-center my-2 p-2 rounded bg-gray-50">
+            <div class="service-info">
+              <h4 class="font-bold">Fire Service Number</h4>
+              <p class="text-gray-400">999</p>
+            </div>
+            <div class="time-stamp">
+              <p class="text-gray-600">11:36:58 AM</p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="https://kit.fontawesome.com/0eecd22d19.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
